@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "boacompraapi": {
+      "hosting": {
+        "e-commerce": [
+          "boacompraapi"
+        ]
+      }
+    }
+  }
+}

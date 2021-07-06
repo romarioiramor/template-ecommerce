@@ -1,0 +1,44 @@
+<div>
+    <form (ngSubmit)="login()" class="form-signin">
+      <div class="text-center mb-4">
+        <i class="fas fa-sign-in-alt fa-4x"></i>
+          <h1 class="h3 mb-3 font-weight-normal">Login do cliente</h1>
+      </div>
+  
+      <div class="form-label-group">Email
+        <input type="email" id="inputEmail" name="email" [(ngModel)]="email" class="form-control" placeholder="Email address" required autofocus />
+        <label for="inputEmail"></label>
+      </div>
+  
+      <div class="form-label-group">Senha
+        <input type="password" id="inputPassword" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" required />
+        <label for="inputPassword"></label>
+      </div>
+  
+      <div class="checkbox mb-3">
+        <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Entrar
+      </button>
+      <br />
+      <button class="btn btn-lg btn-light btn-block" routerLink="/cadastrar">
+        Cadastre-se
+      </button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2021-2022</p>
+    </form>
+  
+    <div>
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+        {{ errorMessage }}
+      </p>
+  
+      <p *ngIf="error.message.length > 0" class="text-danger">
+        {{ error.message }}
+      </p>
+  
+    </div>
+  
+  </div>
+  
+  

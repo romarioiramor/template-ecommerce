@@ -1,0 +1,5 @@
+.owl-carousel.owl-loaded {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }

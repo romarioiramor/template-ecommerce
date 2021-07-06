@@ -1,0 +1,70 @@
+<div>
+
+    <form (ngSubmit)="cadastrar(frmClient)" method="POST" #frmClient="ngForm" class="form-signin">
+      <div class="text-center mb-4">
+        <i class="fas fa-user fa-4x"><h1 class="h3 mb-3 font-weight-normal">Faça seu cadastro</h1></i>
+      </div>
+      <div class="form-label-group">
+        E-mail
+        <input type="email" class="form-control" name="email" [(ngModel)]="clientData.email" placeholder="Email" required autofocus>
+      </div>
+      <div class="form-label-group">
+        Senha
+        <input type="password" class="form-control" name="password" [(ngModel)]="clientData.password" placeholder="Senha" required>
+      </div>
+      <div class="form-label-group">
+        CPF
+        <input type="number" mask="getCpfMask()" class="form-control" name="cpf" [(ngModel)]="clientData.cpf" placeholder="CPF" required autofocus>
+      </div>
+      <div class="form-label-group">
+        Nome Completo
+        <input type="text" class="form-control" name="name" [(ngModel)]="clientData.name" placeholder="Nome Completo" required autofocus>
+      </div>
+      <div class="form-label-group">
+        Data de aniversário
+        <input  type="date" name="date" [(ngModel)]="clientData.birth" class="form-control" required autofocus>
+      </div>
+      <div class="form-label-group">
+        Telefone
+        <input  type="text" class="form-control" name="telphone" [(ngModel)]="clientData.telphone" placeholder="Telefone" required autofocus>
+      </div>
+      <div class="checkbox mb-3">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" value="MASCULINO" [(ngModel)]="clientData.gender">
+          <label class="form-check-label" for="flexRadioDefault1">
+              Masculino
+          </label>      
+      </div>
+      <div class="checkbox mb-3">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" value="FEMININO" [(ngModel)]="clientData.gender">
+        <label class="form-check-label" for="flexRadioDefault1">
+            Feminino
+        </label>      
+    </div>
+    <div class="checkbox mb-3">
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" value="TERMO_USO_DADOS" [(ngModel)]="clientData.date_use_term">
+      <label class="form-check-label" for="flexRadioDefault1">
+          Confirmo que li e concordo com o Termo de referente aos meus dados
+      </label>      
+    </div>
+    <div class="checkbox mb-3">
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" value="TERMO_USO_DADOS" [(ngModel)]="clientData.sending_email_term">
+      <label class="form-check-label" for="flexRadioDefault1">
+          Confirmo que li e concordo com o Termo de envio de email
+      </label>      
+    </div>
+      <button  class="btn btn-lg btn-success btn-block" type="submit">Criar Conta</button>
+    </form>
+  
+    <div>
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+        {{ errorMessage }}
+      </p>
+      <p *ngIf="error.message.length > 0" class="text-danger">
+        {{ error.message }}
+      </p>
+      <p *ngIf="message.length > 0" class="text-info">
+        {{ message }}
+      </p>
+    </div>
+  </div>
+  

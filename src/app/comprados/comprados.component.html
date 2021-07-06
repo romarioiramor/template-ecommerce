@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+                        <h1 class="h1Carrinho">Produtos Comprados</h1>
+                        <form method="post" action="#">
+                            <table cellspacing="0" class="shop_table cart">
+                                <thead>
+                                    <tr>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-subtotal">Total</th>
+                                        <th class="product-remove">Remover</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="cart_item">
+
+                                        <td class="product-name">
+                                            {{comprados.products.id}}
+                                        </td>
+
+                                        <td class="product-price">
+                                           
+                                        </td>
+
+                                        <td class="product-quantity">
+                                            
+                                        </td>
+
+                                        <td class="product-subtotal">
+                                            
+                                        </td>
+
+                                        <td class="product-remove">
+                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

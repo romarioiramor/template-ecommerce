@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { Products } from '../model/products.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataProductsService {
+
+  private produtos!: Products;
+
+  constructor() { }
+
+  setProducts(produtos: Products){
+    this.produtos = produtos;
+  }
+
+  getProducts(){
+    return this.produtos;
+  }
+}
