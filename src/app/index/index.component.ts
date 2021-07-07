@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Clients } from '../shared/model/clients.model';
 import { Products } from '../shared/model/products.model';
+import { ClientsService } from '../shared/service/clients.service';
 import { DataProductsService } from '../shared/service/data-products.service';
 import { ProductsService } from '../shared/service/products.service';
 
@@ -14,13 +18,21 @@ import { ProductsService } from '../shared/service/products.service';
 export class IndexComponent implements OnInit {
 
   produtos!: Products[];
+  cart: any;
+  clients: Clients[] = [];
+  client: any;
+  authState: any = null;
+  userLogin!: string;
 
-  constructor(public productsService: ProductsService, private router: Router, private dataProductsService: DataProductsService) { 
-
+  constructor(private afu: AngularFireAuth, public productsService: ProductsService, private serviceClient: ClientsService, private router: Router, private dataProductsService: DataProductsService) { 
+ 
   }
 
   ngOnInit() {
     this.getProducts();
+    this.getClients();
+    this.getUserLogin();
+    
   }
 
   getProducts() {
@@ -30,9 +42,31 @@ export class IndexComponent implements OnInit {
     }) 
   }
 
+  getUserLogin(){
+    this.afu.authState.subscribe(auth => {
+      this.authState = auth;
+      this.userLogin = this.authState.email;
+      console.log("user",this.userLogin)
+    })
+  }
+
+  getClients() {
+    this.serviceClient.getClient().subscribe(data => {
+      this.clients = data;
+      this.client = this.clients.find( clients => clients.email == this.userLogin);
+      console.log('clients', this.client)
+    }) 
+  }
+
   goToModalComprarByService(produtos: Products){
     this.dataProductsService.setProducts(produtos);
     this.router.navigateByUrl('/single-product')
+  }
+
+  addCart(produtos: Products){
+    this.cart.clients = this.client;
+    this.cart.products = produtos;
+    this.serviceClient.addCart(this.cart);
   }
 
 }

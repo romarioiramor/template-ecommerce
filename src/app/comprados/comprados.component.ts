@@ -1,5 +1,6 @@
 import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/services/auth.service';
 import { Bought } from '../shared/model/bought.model';
 import { Clients } from '../shared/model/clients.model';
@@ -14,31 +15,34 @@ import { ClientsService } from '../shared/service/clients.service';
 export class CompradosComponent implements OnInit {
 
   comprados: Bought[] = [];
+  compradosUser: any;
   clients: Clients[] = [];
   client: any;
   found: any;
+  authState: any = null;
+  userLogin!: string;
 
-  constructor(public authservice: AuthService, private serviceClient: ClientsService, private clientServe: ClientsService) {
- 
+  constructor(private afu: AngularFireAuth, private serviceClient: ClientsService, private clientServe: ClientsService) {
    }
 
   ngOnInit(): void {
-    this.getClients();
     this.getComprados();
+    this.getUserLogin();
   }
 
-  getClients() {
-    this.serviceClient.getClient().subscribe(data => {
-      this.clients = data
-      this.client = this.clients.find( clients => clients);
-      console.log('clients', this.client)
-    }) 
+  getUserLogin(){
+    this.afu.authState.subscribe(auth => {
+      this.authState = auth;
+      this.userLogin = this.authState.email;
+      console.log("user",this.userLogin)
+    })
   }
 
   getComprados(){
     this.clientServe.getBougth().subscribe(data => {
-      this.comprados[0].products = data
-      console.log('compras', this.comprados)
+      this.comprados = data
+      this.compradosUser = this.comprados.find( comprados => comprados.clients.email == this.userLogin);
+      console.log('compras', this.compradosUser)
     }) 
   }
 

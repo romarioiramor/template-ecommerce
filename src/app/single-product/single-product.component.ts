@@ -31,17 +31,16 @@ export class SingleProductComponent implements OnInit {
   payment: any;
   address: any;
   bought: any;
-  authState: any = null;
+  authState: any;
+  userLogin!: string;
 
   constructor(private afu: AngularFireAuth, private router: Router,private dataProductsService: DataProductsService, private servicePayment: PaymentFormService, private serviceClient: ClientsService, public productsService: ProductsService) { 
-    this.afu.authState.subscribe((auth => {
-      this.authState = auth;
-    }))
   }
 
   ngOnInit() {
     this.getProducts();
     this.getPaymentForm();
+    this.getUserLogin()
     this.getClients();
     this.getAddress();
     this.payment = {};
@@ -56,8 +55,13 @@ export class SingleProductComponent implements OnInit {
       console.log('aqui', data)
     }) 
   }
-  get currenteUserName(): string {
-    return this.authState['email']
+
+  getUserLogin(){
+    this.afu.authState.subscribe(auth => {
+      this.authState = auth;
+      this.userLogin = this.authState.email;
+      console.log("user",this.userLogin)
+    })
   }
 
   changeTipo(tipo: any){
@@ -73,9 +77,8 @@ export class SingleProductComponent implements OnInit {
 
   getClients() {
     this.serviceClient.getClient().subscribe(data => {
-      this.clients = data
-      var emailLogin = this.authState.email;
-      this.client = this.clients.find( clients => clients.email == emailLogin);
+      this.clients = data;
+      this.client = this.clients.find( clients => clients.email == this.userLogin);
       console.log('clients', this.client)
     }) 
   }
@@ -107,7 +110,7 @@ export class SingleProductComponent implements OnInit {
     this.bought.clients = this.client;
     this.bought.products = this.produtosData;
     this.serviceClient.addBought(this.bought);
-    this.router.navigate(['/statusCompra'])
+    this.router.navigate(['/comprados'])
   }
 
 }

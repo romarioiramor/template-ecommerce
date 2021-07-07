@@ -20,14 +20,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="cart_item">
+                                    <tr class="cart_item" *ngFor="let carrinho of carrinho">
 
                                         <td class="product-name">
-                                            <a href="single-product">Ship Your Idea</a>
+                                            {{carrinho.products.productName}}
                                         </td>
 
                                         <td class="product-price">
-                                            <span class="amount">£15.00</span>
+                                            <span class="amount">{{carrinho.products.productPrice}}</span>
                                         </td>
 
                                         <td class="product-quantity">

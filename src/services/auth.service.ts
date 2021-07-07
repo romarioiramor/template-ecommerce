@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Clients } from 'src/app/shared/model/clients.model';
+import { ClientsService } from 'src/app/shared/service/clients.service';
 
 @Injectable({
   providedIn: 'root'

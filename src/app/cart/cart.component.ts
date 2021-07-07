@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ShoppingCart } from '../shared/model/shopping-cart.module';
+import { ClientsService } from '../shared/service/clients.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  carrinho!: ShoppingCart[];
+  carrinhoUser: any;
+  authState: any = null;
+  userLogin!: string;
+
+  constructor(private afu: AngularFireAuth, private clientServe: ClientsService) { }
 
   ngOnInit(): void {
+    this.getCarrinho();
+    this.getUserLogin();
+  }
+
+  getUserLogin(){
+    this.afu.authState.subscribe(auth => {
+      this.authState = auth;
+      this.userLogin = this.authState.email;
+      console.log("user",this.userLogin)
+    })
+  }
+
+  getCarrinho(){
+    this.clientServe.getCart().subscribe(data => {
+      this.carrinho = data
+      this.carrinhoUser = this.carrinho.find( carrinho => carrinho.clients.email == this.userLogin);
+      console.log('compras', this.carrinhoUser)
+    }) 
   }
 
 }

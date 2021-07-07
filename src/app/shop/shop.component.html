@@ -4,8 +4,9 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="single-shop-product" *ngFor="let prod of produtos">
+            <div class="col-sm-12">
+             <ng-container *ngFor="let prod of produtos">
+                <div class="single-shop-product">
                     <div class="product-upper">
                         <img src="../../assets/imgs/{{prod.photos}}" alt="">
                     </div>
@@ -19,6 +20,7 @@
                             rel="nofollow" href="/canvas/shop/?add-to-cart=70">Comprar</a>
                     </div>
                 </div>
+            </ng-container>
             </div>
         </div>
 

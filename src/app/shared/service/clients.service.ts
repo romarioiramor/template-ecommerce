@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { AddressClient } from '../model/addressClient.model';
 import { Bought } from '../model/bought.model';
 import { Clients } from '../model/clients.model';
+import { ShoppingCart } from '../model/shopping-cart.module';
 import { Support } from '../model/support.model';
 
 @Injectable({
@@ -18,6 +19,8 @@ export class ClientsService {
   apiUrlSupport = "http://localhost:8080/api/v1/support";
 
   apiUrlBougth =  "http://localhost:8080/api/v1/bought";
+
+  apiUrlCart =  "http://localhost:8080/api/v1/shoppingCart";
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -45,6 +48,10 @@ export class ClientsService {
     return this.httpClient.get<Bought[]>(this.apiUrlBougth)
   }
 
+  getCart() {
+    return this.httpClient.get<ShoppingCart[]>(this.apiUrlCart)
+  }
+
   addClient(frmClient: NgForm) {
     return this.httpClient.post(this.apiUrl, JSON.stringify(frmClient), this.httpOptions).subscribe(results=>{
       console.log(results);
@@ -59,6 +66,12 @@ export class ClientsService {
 
   addBought(frm: NgForm) {
     return this.httpClient.post(this.apiUrlBougth, JSON.stringify(frm), this.httpOptions).subscribe(results=>{
+      console.log(results);
+    });
+  }
+
+  addCart(frm: NgForm) {
+    return this.httpClient.post(this.apiUrlCart, JSON.stringify(frm), this.httpOptions).subscribe(results=>{
       console.log(results);
     });
   }
