@@ -10,11 +10,11 @@ export class DataProductsService {
 
   constructor() { }
 
-  setProducts(produtos: Products){
+  setProductsData(produtos: Products){
     this.produtos = produtos;
   }
 
-  getProducts(){
+  getProductData(){
     return this.produtos;
   }
 }

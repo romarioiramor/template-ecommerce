@@ -22,8 +22,6 @@ export class CartComponent implements OnInit {
     this.getCarrinho();
   }
 
-  
-
   getCarrinho(){
     this.clientServe.getCart().subscribe(data => {
       this.carrinho = data

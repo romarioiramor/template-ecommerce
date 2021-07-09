@@ -27,9 +27,9 @@ export class ShopComponent implements OnInit {
   }
 
 
-  goToModalComprarByService(produtos: Products){
-    this.dataProductsService.setProducts(produtos);
-    this.router.navigateByUrl('/modalComprar')
+  goToModalComprarByService(prod: Products){
+    this.dataProductsService.setProductsData(prod);
+    this.router.navigateByUrl('/single-product')
   }
 
 }

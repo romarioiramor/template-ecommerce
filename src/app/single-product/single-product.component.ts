@@ -47,7 +47,7 @@ export class SingleProductComponent implements OnInit {
     this.payment = {};
     this.address = {};
     this.bought = {};
-    this.produtosData = this.dataProductsService.getProducts();
+    this.produtosData = this.dataProductsService.getProductData();
   }
 
   getProducts() {
@@ -91,8 +91,8 @@ export class SingleProductComponent implements OnInit {
     }) 
   }
 
-  goToModalComprarByService(produtos: Products){
-    this.dataProductsService.setProducts(produtos);
+  goToModalComprarByService(prod: Products){
+    this.dataProductsService.setProductsData(prod);
     this.router.navigateByUrl('/single-product')
   }
 
