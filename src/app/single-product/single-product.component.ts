@@ -31,6 +31,7 @@ export class SingleProductComponent implements OnInit {
   payment: any;
   address: any;
   bought: any;
+  cart: any;
   authState: any;
   userLogin!: string;
 
@@ -90,6 +91,11 @@ export class SingleProductComponent implements OnInit {
     }) 
   }
 
+  goToModalComprarByService(produtos: Products){
+    this.dataProductsService.setProducts(produtos);
+    this.router.navigateByUrl('/single-product')
+  }
+
   addAddress(frm: NgForm){
     this.address.id = 1;
     this.serviceClient.addAddress(this.address);
@@ -111,6 +117,12 @@ export class SingleProductComponent implements OnInit {
     this.bought.products = this.produtosData;
     this.serviceClient.addBought(this.bought);
     this.router.navigate(['/comprados'])
+  }
+
+  addCart(){
+    this.cart.clients = this.client;
+    this.cart.products = this.produtosData;
+    this.serviceClient.addCart(this.cart);
   }
 
 }

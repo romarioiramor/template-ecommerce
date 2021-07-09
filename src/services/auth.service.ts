@@ -10,6 +10,7 @@ import { ClientsService } from 'src/app/shared/service/clients.service';
 export class AuthService {
 
   authState: any = null;
+  userLogin!: string;
 
   constructor(private afu: AngularFireAuth, private router: Router) {
     this.afu.authState.subscribe((auth => {
@@ -52,6 +53,14 @@ export class AuthService {
       throw error
     });
    }
+
+   getUserLogin(){
+    this.afu.authState.subscribe(auth => {
+      this.authState = auth;
+      this.userLogin = this.authState.email;
+      console.log("user",this.userLogin)
+    })
+  }
 
 
    login(email: string, password: string) {

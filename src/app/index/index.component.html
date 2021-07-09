@@ -45,12 +45,12 @@
                                 <img src="../../assets/imgs/{{prod.photos}}" alt="">
                                 <div class="product-hover">
                                     <a (click)="addCart(prod)" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Carrinho +</a>
-                                    <a href="single-product" class="view-details-link"><i
+                                    <a (click)="goToModalComprarByService(prod)" class="view-details-link"><i
                                             class="fa fa-shopping-basket"></i>Comprar</a>
                                 </div>
                             </div>
 
-                            <h2><a href="single-product">{{ prod.productName }}</a></h2>
+                            <h2><a>{{ prod.productName }}</a></h2>
 
                             <div class="product-carousel-price" >
                                 <ins>R$ {{prod.productPrice}}</ins> <del>R$5000</del>

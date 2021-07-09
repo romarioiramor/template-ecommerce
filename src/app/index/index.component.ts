@@ -24,15 +24,14 @@ export class IndexComponent implements OnInit {
   authState: any = null;
   userLogin!: string;
 
-  constructor(private afu: AngularFireAuth, public productsService: ProductsService, private serviceClient: ClientsService, private router: Router, private dataProductsService: DataProductsService) { 
+  constructor(private afu: AngularFireAuth, public productsService: ProductsService, private router: Router, private dataProductsService: DataProductsService, private serviceClient: ClientsService) { 
  
   }
 
   ngOnInit() {
-    this.getProducts();
-    this.getClients();
     this.getUserLogin();
-    
+    this.getClients();
+    this.getProducts();
   }
 
   getProducts() {
@@ -54,7 +53,7 @@ export class IndexComponent implements OnInit {
     this.serviceClient.getClient().subscribe(data => {
       this.clients = data;
       this.client = this.clients.find( clients => clients.email == this.userLogin);
-      console.log('clients', this.client)
+      console.log('clients', this.clients)
     }) 
   }
 

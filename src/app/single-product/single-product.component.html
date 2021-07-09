@@ -178,19 +178,19 @@
                   <img src="../../assets/imgs/{{prod.photos}}" alt="">
                   <div class="product-hover">
                     <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Carrinho</a>
-                    <a href="single-product" class="view-details-link"><i
+                    <a 0(click)="goToModalComprarByService(prod)" class="view-details-link"><i
                         class="fa fa-shopping-basket"></i>Comprar</a>
                   </div>
                 </div>
 
-                <h2><a href="single-product">{{ prod.productName }}</a></h2>
+                <h2><a>{{ prod.productName }}</a></h2>
 
                 <div class="product-carousel-price">
-                  <ins>$400.00</ins> <del>R$5000</del>
+                  <ins>{{ prod.productPrice }}</ins> <del>R$5000</del>
                 </div>
                 <div class="product-option-shop">
                   <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70"
-                    rel="nofollow" href="single-product">Comprar</a>
+                    rel="nofollow" (click)="goToModalComprarByService(prod)">Comprar</a>
                 </div>
               </div>
             </ng-container>
