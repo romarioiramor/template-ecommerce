@@ -22,3 +22,7 @@ ngb-carousel .wrapper>img {
   flex-wrap: nowrap;
   justify-content: space-around;
 }
+
+.subIndex {
+  margin-top: 2em;
+}

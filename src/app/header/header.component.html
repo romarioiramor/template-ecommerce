@@ -9,7 +9,7 @@
             <div class="col-md-9">
                 <div class="user-menu ajustMenu">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user ajustIcon"></i> Login</a></li>
+                        <li><a href="login" *ngIf="!authservice.currentUser"><i class="fa fa-user ajustIcon"></i> Login</a></li>
                         <li *ngIf="authservice.currentUser"><a href="comprados"><i class="fas fa-shopping-basket ajustIcon"></i> Minhas Compras</a></li>
                         <li><a href="cart"><i class="fas fa-shopping-cart ajustIcon"></i> Meu Carrinho</a></li>
                         <li><a href="shop"><i class="fas fa-store ajustIcon"></i> Comprar</a></li>
@@ -23,11 +23,11 @@
             <div class="rowMenu">
                 <div class="">
                     <ul class="nav navbar-nav liNav">
-                        <li class="active"><a href="index">Home</a></li>
+                        <li class="active"><a href="./">Home</a></li>
                         <li><a href="shop">Pagina de Compra</a></li>
-                        <li><a href="#">Ultimos Adicionados</a></li>
-                        <li><a href="#">Mais Vendidos</a></li>
-                        <li><a href="#">Contatos</a></li>
+                        <li><a href="#ultimosAdd">Ultimos Adicionados</a></li>
+                        <li><a href="#maisVendidos">Mais Vendidos</a></li>
+                        <li><a href="#contatos">Contatos</a></li>
                         <li *ngIf="authservice.currentUser"><a href="#">Bem Vindo: {{authservice.currenteUserName}}</a></li>
                         <li *ngIf="authservice.currentUser"><a class="nav-link" (click)="authservice.sair()">
                             Sair

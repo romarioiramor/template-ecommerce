@@ -12,22 +12,23 @@
                             <table cellspacing="0" class="shop_table cart">
                                 <thead>
                                     <tr>
-                                        <th class="product-name">Product</th>
-                                        <th class="product-price">Price</th>
-                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-name">Produto</th>
+                                        <th class="product-price">Preço</th>
+                                        <th class="product-quantity">Quantidade</th>
                                         <th class="product-subtotal">Total</th>
-                                        <th class="product-remove">Remover</th>
+                                        <th class="product-remove">Pagamento</th>
+                                        <th class="product-remove">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="cart_item" *ngFor="let comprados of comprados">
+                                    <tr class="cart_item" *ngFor="let comprados of compradosUser">
 
                                         <td class="product-name">
-                                            {{comprados.products.id}}
+                                            {{comprados.products.productName}}
                                         </td>
 
                                         <td class="product-price">
-                                           
+                                            {{comprados.products.productPrice}}
                                         </td>
 
                                         <td class="product-quantity">
@@ -35,11 +36,15 @@
                                         </td>
 
                                         <td class="product-subtotal">
-                                            
+                                            {{comprados.products.productName}}
                                         </td>
 
-                                        <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                        <td class="product-subtotal">
+                                            {{comprados.paymentForm.typePayment}}
+                                        </td>
+
+                                        <td class="product-subtotal">
+                                            {{comprados.statusPay}}
                                         </td>
                                     </tr>
 

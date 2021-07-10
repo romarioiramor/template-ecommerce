@@ -30,7 +30,6 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.getUserLogin();
-    this.getClients();
     this.getProducts();
   }
 
@@ -46,14 +45,15 @@ export class IndexComponent implements OnInit {
       this.authState = auth;
       this.userLogin = this.authState.email;
       console.log("user",this.userLogin)
+      this.getClients();
     })
   }
 
   getClients() {
     this.serviceClient.getClient().subscribe(data => {
       this.clients = data;
-      this.client = this.clients.find( clients => clients.email == this.userLogin);
-      console.log('clients', this.clients)
+      this.client = Array.of(this.clients.find( clients => clients.email == this.userLogin));
+      console.log('clients', this.client)
     }) 
   }
 
@@ -63,7 +63,7 @@ export class IndexComponent implements OnInit {
   }
 
   addCart(produtos: Products){
-    this.cart.clients = this.client;
+    this.cart.clients = this.client[0];
     this.cart.products = produtos;
     this.serviceClient.addCart(this.cart);
   }

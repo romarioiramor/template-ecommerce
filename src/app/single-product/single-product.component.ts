@@ -93,7 +93,7 @@ export class SingleProductComponent implements OnInit {
 
   goToModalComprarByService(prod: Products){
     this.dataProductsService.setProductsData(prod);
-    this.router.navigateByUrl('/single-product')
+    this.produtosData = this.dataProductsService.getProductData();
   }
 
   addAddress(frm: NgForm){

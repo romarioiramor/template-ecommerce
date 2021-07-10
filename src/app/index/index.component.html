@@ -34,10 +34,9 @@
 <div class="maincontent-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
-        <div class="">
             <div class="col-xs-12">
                 <div class="latest-product">
-                    <h2 class="section-title">Mais Vendidos</h2>
+                    <h2 class="section-title" id="maisVendidos">Mais Vendidos</h2>
                     <div class="product-carousel owl-stage-outer related-products-carousel owl-carousel owl-theme owl-responsive-1200 owl-loaded">
                         <ng-container *ngFor="let prod of produtos | slice:0:4">
                         <div class="single-product" style="transform: translate3d(0px, 0px, 0px);transition: all 0s ease 0s;width: 226px;">
@@ -64,7 +63,35 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="col-xs-12">
+                <div class="latest-product">
+                    <h2 class="section-title subIndex" id="ultimosAdd">Ultimos Adicionados</h2>
+                    <div class="product-carousel owl-stage-outer related-products-carousel owl-carousel owl-theme owl-responsive-1200 owl-loaded">
+                        <ng-container *ngFor="let prod of produtos | slice:4:8">
+                        <div class="single-product" style="transform: translate3d(0px, 0px, 0px);transition: all 0s ease 0s;width: 226px;">
+                            <div class="product-f-image">
+                                <img src="../../assets/imgs/{{prod.photos}}" alt="">
+                                <div class="product-hover">
+                                    <a (click)="addCart(prod)" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Carrinho +</a>
+                                    <a (click)="goToModalComprarByService(prod)" class="view-details-link"><i
+                                            class="fa fa-shopping-basket"></i>Comprar</a>
+                                </div>
+                            </div>
+
+                            <h2><a>{{ prod.productName }}</a></h2>
+
+                            <div class="product-carousel-price" >
+                                <ins>R$ {{prod.productPrice}}</ins> <del>R$5000</del>
+                            </div>
+                            <div class="product-option-shop">
+                                <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70"
+                                    rel="nofollow" (click)="goToModalComprarByService(prod)">Comprar</a>
+                            </div>
+                        </div>
+                    </ng-container>
+                    </div>
+                </div>
+            </div>
     </div>
     <button type="button" class="btn btn-primary btn-lg botaoHome" routerLink="/shop">Ver Mais</button>
 </div>
