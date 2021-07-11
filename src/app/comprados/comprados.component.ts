@@ -43,7 +43,7 @@ export class CompradosComponent implements OnInit {
   getComprados() {
     this.clientServe.getBougth().subscribe(data => {
       this.comprados = data
-      this.compradosUser = Array.of(this.comprados.find(comprados => comprados.clients.email == this.userLogin));
+      this.compradosUser = this.comprados.filter(comprados => comprados.clients.email == this.userLogin);
       console.log('compras', this.comprados)
       console.log('compras', this.compradosUser)
     })

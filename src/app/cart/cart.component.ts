@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
   getCarrinho(){
     this.clientServe.getCart().subscribe(data => {
       this.carrinho = data
-      this.carrinhoUser = Array.of(this.carrinho.find( carrinho => carrinho.clients.email == this.userLogin));
+      this.carrinhoUser = this.carrinho.filter(carrinho => carrinho.clients.email == this.userLogin);
       console.log('carrinho', this.carrinho)
       console.log('carrinho', this.carrinhoUser)
     }) 

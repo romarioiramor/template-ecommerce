@@ -31,6 +31,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.getUserLogin();
     this.getProducts();
+    this.cart = {};
   }
 
   getProducts() {
@@ -52,7 +53,7 @@ export class IndexComponent implements OnInit {
   getClients() {
     this.serviceClient.getClient().subscribe(data => {
       this.clients = data;
-      this.client = Array.of(this.clients.find( clients => clients.email == this.userLogin));
+      this.client = this.clients.find( clients => clients.email == this.userLogin);
       console.log('clients', this.client)
     }) 
   }
@@ -62,10 +63,13 @@ export class IndexComponent implements OnInit {
     this.router.navigateByUrl('/single-product')
   }
 
-  addCart(produtos: Products){
-    this.cart.clients = this.client[0];
-    this.cart.products = produtos;
+  addCart(prod: Products){
+    this.cart.id = 1;
+    this.cart.clients = this.client;
+    this.cart.products = prod;
+    console.log("addcart",this.cart)
     this.serviceClient.addCart(this.cart);
+    
   }
 
 }
