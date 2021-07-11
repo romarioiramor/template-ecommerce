@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CompradosComponent } from './comprados/comprados.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalBackdrop } from '@ng-bootstrap/ng-bootstrap/modal/modal-backdrop';
 
 @NgModule({
   declarations: [
