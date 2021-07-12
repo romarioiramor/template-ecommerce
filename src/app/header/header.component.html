@@ -13,6 +13,7 @@
                         <li *ngIf="authservice.currentUser"><a href="comprados"><i class="fas fa-shopping-basket ajustIcon"></i> Minhas Compras</a></li>
                         <li><a href="cart"><i class="fas fa-shopping-cart ajustIcon"></i> Meu Carrinho</a></li>
                         <li><a href="shop"><i class="fas fa-store ajustIcon"></i> Comprar</a></li>
+                        <li><a href="admin" *ngIf="adminPermission == true"><i class="fas fa-store ajustIcon"></i> Admin</a></li>
                     </ul>
                 </div>     
             </div>

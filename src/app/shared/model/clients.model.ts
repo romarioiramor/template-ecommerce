@@ -9,4 +9,5 @@ export class Clients {
     cell!: string;
     date_use_term!: boolean;
     sending_email_term!: boolean;
+    admin_permission!: boolean;
   }

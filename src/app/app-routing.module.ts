@@ -7,10 +7,12 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CompradosComponent } from './comprados/comprados.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent},
+  { path: 'admin', component: AdminComponent},
   { path: 'cadastrar', component: CadastrarComponent},
   { path: 'comprados', component: CompradosComponent},
   { path: '', component: IndexComponent },

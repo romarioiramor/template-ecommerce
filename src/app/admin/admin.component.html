@@ -1,0 +1,44 @@
+<div class="header-area">
+    <div class="container">
+        <div class="rowMenu">
+            <div class="col-md-3">
+                <div class="logo">
+                    <h1><a href="./"><img src="../../assets/img/BoaCompra.png"></a></h1>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="user-menu ajustMenu">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-shopping-cart ajustIcon"></i>Sobre Estoque</a></li>
+                        <li><a href="#"><i class="fas fa-store ajustIcon"></i> Produtos</a></li>
+                        <li><a href="#"><i class="fas fa-store ajustIcon"></i> Clients</a></li>
+                        <li><a href="#"><i class="fas fa-store ajustIcon"></i> Promoções</a></li>
+                    </ul>
+                </div>     
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="container">
+<div class="row">
+    <div class="col-6">
+        <div>
+         <h2>Valor em Estoque</h2> 
+         <h3>{{valorTotalEstoque}}</h3>
+        </div>
+    </div>
+    <div class="col-6">
+        <div>
+         <h2>Total de Produtos</h2>
+           <h3>{{totalNoEstoqueProducts}}</h3>
+        </div>
+    </div>
+    <div class="col-12">
+        <div>
+         <h2>Crescimento Mensal</h2>
+         <canvas #meuCanvas class="estiloGrafico"></canvas>
+        </div>
+    </div>
+</div>
+</div>

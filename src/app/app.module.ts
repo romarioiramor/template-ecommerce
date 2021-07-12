@@ -20,6 +20,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CompradosComponent } from './comprados/comprados.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalBackdrop } from '@ng-bootstrap/ng-bootstrap/modal/modal-backdrop';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NgbModalBackdrop } from '@ng-bootstrap/ng-bootstrap/modal/modal-backdro
     FooterComponent,
     LoginComponent,
     CadastrarComponent,
-    CompradosComponent
+    CompradosComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
