@@ -177,7 +177,7 @@
                 <div class="product-f-image">
                   <img src="../../assets/imgs/{{prod.photos}}" alt="">
                   <div class="product-hover">
-                    <a class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Carrinho</a>
+                    <a (click)="addCart()" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Carrinho</a>
                     <a (click)="goToModalComprarByService(prod)" class="view-details-link"><i
                         class="fa fa-shopping-basket"></i>Comprar</a>
                   </div>

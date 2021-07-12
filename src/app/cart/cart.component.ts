@@ -11,15 +11,17 @@ import { ClientsService } from '../shared/service/clients.service';
 export class CartComponent implements OnInit {
 
   carrinho!: ShoppingCart[];
+  cart: any;
   carrinhoUser!: any;
   authState: any = null;
   userLogin!: string;
 
-  constructor(private afu: AngularFireAuth, private clientServe: ClientsService) { 
+  constructor(private afu: AngularFireAuth, private clientServe: ClientsService, private serviceClient: ClientsService) { 
   }
 
   ngOnInit(): void {
     this.getUserLogin();
+    // this.cart = {};
   }
 
   getUserLogin() {
@@ -39,5 +41,11 @@ export class CartComponent implements OnInit {
       console.log('carrinho', this.carrinhoUser)
     }) 
   }
+
+  // removeCart(){
+  //   this.cart.id = 0;
+  //   console.log("addcart",this.cart)
+  //   this.serviceClient.addCart(this.cart);
+  // }
 
 }

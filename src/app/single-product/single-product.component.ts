@@ -47,6 +47,7 @@ export class SingleProductComponent implements OnInit {
     this.payment = {};
     this.address = {};
     this.bought = {};
+    this.cart = {};
     this.produtosData = this.dataProductsService.getProductData();
   }
 
@@ -120,6 +121,7 @@ export class SingleProductComponent implements OnInit {
   }
 
   addCart(){
+    this.cart.id = 0;
     this.cart.clients = this.client;
     this.cart.products = this.produtosData;
     this.serviceClient.addCart(this.cart);

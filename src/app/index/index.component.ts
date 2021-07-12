@@ -60,16 +60,15 @@ export class IndexComponent implements OnInit {
 
   goToModalComprarByService(prod: Products){
     this.dataProductsService.setProductsData(prod);
-    this.router.navigateByUrl('/single-product')
+    this.router.navigateByUrl('/single-product');
   }
 
   addCart(prod: Products){
-    this.cart.id = 1;
+    this.cart.id = 0;
     this.cart.clients = this.client;
     this.cart.products = prod;
     console.log("addcart",this.cart)
     this.serviceClient.addCart(this.cart);
-    
   }
 
 }
