@@ -23,4 +23,10 @@
   display: block;
   margin-left: 10em;;
 }
-
+.ajusteH3{
+  margin-top: 2em;
+  text-align: center;
+}
+.ajusteGrafico{
+  margin-top: 4em;
+}

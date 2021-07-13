@@ -23,7 +23,6 @@ export class AdminComponent implements OnInit {
   constructor(public productsService: ProductsService) {
     Chart.register(...registerables);
    }
-
   ngOnInit(): void {
     this.getProducts();
     new Chart(this.elemento.nativeElement, {
@@ -39,7 +38,6 @@ export class AdminComponent implements OnInit {
       }
     });
   }
-
   getProducts() {
     this.productsService.getProducts().subscribe(data => {
       this.produtos = data
@@ -51,11 +49,7 @@ export class AdminComponent implements OnInit {
      })
       this.totalNoEstoqueProducts = this.produtoQuantidade.reduce((total: any, productQuatity: any) => total + productQuatity);
       this.totalProductsPrice = this.produtoPreco.reduce((total: any, productPrice: any) => total + productPrice);
-      this.valorTotalEstoque = this.totalNoEstoqueProducts * this.totalProductsPrice;
-      console.log('aqui', this.totalNoEstoqueProducts)
-      console.log('total', this.totalProductsPrice)
-      console.log('totalestoqe', this.valorTotalEstoque)
-     
+      this.valorTotalEstoque = this.totalNoEstoqueProducts * this.totalProductsPrice;   
     }) 
   }
 
