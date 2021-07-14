@@ -3,4 +3,5 @@ export class Support {
     description!: string;
     service!: string;
     clients!: string;
+    attended!: boolean;
   }

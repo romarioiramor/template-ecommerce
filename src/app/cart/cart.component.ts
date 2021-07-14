@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { Products } from '../shared/model/products.model';
 import { ShoppingCart } from '../shared/model/shopping-cart.module';
 import { ClientsService } from '../shared/service/clients.service';
+import { DataProductsService } from '../shared/service/data-products.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +19,7 @@ export class CartComponent implements OnInit {
   authState: any = null;
   userLogin!: string;
 
-  constructor(private afu: AngularFireAuth, private clientServe: ClientsService, private serviceClient: ClientsService) { 
+  constructor(private afu: AngularFireAuth, private router: Router, private dataProductsService: DataProductsService, private clientServe: ClientsService, private serviceClient: ClientsService) { 
   }
 
   ngOnInit(): void {
@@ -40,6 +43,11 @@ export class CartComponent implements OnInit {
       console.log('carrinho', this.carrinho)
       console.log('carrinho', this.carrinhoUser)
     }) 
+  }
+
+  goToModalComprarByService(prod: Products){
+    this.dataProductsService.setProductsData(prod);
+    this.router.navigateByUrl('/single-product');
   }
 
   // removeCart(){

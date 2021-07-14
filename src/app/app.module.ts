@@ -21,6 +21,8 @@ import { CompradosComponent } from './comprados/comprados.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalBackdrop } from '@ng-bootstrap/ng-bootstrap/modal/modal-backdrop';
 import { AdminComponent } from './admin/admin.component';
+import { AdminProductComponent } from './admin-product/admin-product.component';
+import { AdminSupportComponent } from './admin-support/admin-support.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     CadastrarComponent,
     CompradosComponent,
-    AdminComponent
+    AdminComponent,
+    AdminProductComponent,
+    AdminSupportComponent
   ],
   imports: [
     BrowserModule,

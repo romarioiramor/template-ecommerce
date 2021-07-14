@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="ajusteH3 col-6">
+      <h2>Quantidade de Suporte</h2>
+      <h3>{{suporteQuantidade}}</h3>
+      <h3></h3>
+    </div>
+    <div class="ajusteH3 col-6">
+      <h2>Suportes atendidos</h2>
+      <h3>{{suporteAtendido}}</h3>
+    </div>
+
+    <div class="col-12 ajusteGrafico">
+      <h2 class="tituloTabela">Chamados de Suporte</h2>
+      <table cellspacing="0" class="shop_table cart">
+        <thead>
+          <tr>
+            <th class="product-name">Descrição</th>
+            <th class="product-price">Cliente</th>
+            <th class="product-remove">Status</th>
+            <th class="product-remove">Atendido</th>
+            <th class="product-remove">Atender</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let suport of suporteData">
+
+            <td class="product-name">
+              {{suport.description}}
+            </td>
+
+            <td class="product-name">
+              {{suport.clients.name}}
+            </td>
+
+            <td class="product-name">
+              {{suport.service}}
+            </td>
+
+            <td class="product-name">
+              {{suport.attended}}
+            </td>
+
+            <td class="product-name">
+              <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow"
+                >Responder</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

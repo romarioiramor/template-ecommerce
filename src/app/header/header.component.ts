@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
 import { Clients } from '../shared/model/clients.model';
@@ -17,6 +18,8 @@ export class HeaderComponent implements OnInit {
   clients: Clients[] = [];
   client: any;
   userLogin!: string;
+  suport: any;
+  data: any;
 
   constructor(public authservice: AuthService, private serviceClient: ClientsService, private afu: AngularFireAuth, private router: Router) {
     this.afu.authState.subscribe((auth => {
@@ -26,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserLogin();
+    this.suport = {};
   }
 
   get currenteUserName(): string {
@@ -54,6 +58,15 @@ export class HeaderComponent implements OnInit {
     }else {
       this.adminPermission = false;
     }
+  }
+
+  addSuporte(frm: NgForm){
+    this.suport.id = 1;
+    this.suport.service = 2;
+    this.suport.clients = this.client;
+    this.suport.attended = false;
+    this.serviceClient.addSuporte(this.suport);
+    this.router.navigate(['/'])
   }
 
 }

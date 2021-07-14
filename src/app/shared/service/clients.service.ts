@@ -76,4 +76,10 @@ export class ClientsService {
     });
   }
 
+  addSuporte(frm: NgForm) {
+    return this.httpClient.post(this.apiUrlSupport, JSON.stringify(frm), this.httpOptions).subscribe(results=>{
+      console.log(results);
+    });
+  }
+
 }
