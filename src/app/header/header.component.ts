@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
+import Swal from 'sweetalert2';
 import { Clients } from '../shared/model/clients.model';
 import { ClientsService } from '../shared/service/clients.service';
 
@@ -66,7 +67,8 @@ export class HeaderComponent implements OnInit {
     this.suport.clients = this.client;
     this.suport.attended = false;
     this.serviceClient.addSuporte(this.suport);
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
+    Swal.fire('Ok!', 'Supporte registrado com sucesso!', 'success');
   }
 
 }

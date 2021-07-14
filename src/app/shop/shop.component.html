@@ -4,8 +4,8 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-             <ng-container *ngFor="let prod of produtos">
+            <ng-container *ngFor="let prod of produtos">
+            <div class="col-sm-3">
                 <div class="single-shop-product">
                     <div class="product-upper">
                         <img src="../../assets/imgs/{{prod.photos}}" alt="">
@@ -20,8 +20,8 @@
                             rel="nofollow" (click)="goToModalComprarByService(prod)">Comprar</a>
                     </div>
                 </div>
-            </ng-container>
             </div>
+        </ng-container>
         </div>
 
         <div class="row">

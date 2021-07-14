@@ -17,7 +17,7 @@
 
             <div class="col-sm-6">
               <div class="product-inner">
-                <h2 class="product-name">{{produtosData.productName}}</h2>
+                <h2 class="product-name" id="topPage">{{produtosData.productName}}</h2>
                 <div class="product-inner-price">
                   <ins>{{produtosData.productPrice}}</ins> <del>$1000.00</del>
                 </div>
@@ -98,7 +98,7 @@
 
             <div class="pagamento">
               <div class="form-check" name="cartao">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="CARTAO"
+                <input class="form-check-input" type="radio" (click)="pay(produtosData.productPrice)" name="raidoCard" value="CARTAO"
                   (change)="changeTipo(1)" [(ngModel)]="payment.typePayment">
                 <label class="form-check-label" for="flexRadioDefault1">
                   <i class="far fa-credit-card"></i>
@@ -107,7 +107,7 @@
               </div>
               <div class="form-check" name="boleto">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" value="BOLETO"
-                  (change)="changeTipo(2)" [(ngModel)]="payment.typePayment">
+                  (change)="changeTipo(2)" [(ngModel)]="payment.typePayment" disabled>
                 <label class="form-check-label" for="flexRadioDefault2">
                   <i class="fas fa-file-alt"></i>
                   Boleto
@@ -115,45 +115,27 @@
               </div>
             </div>
 
-            <div *ngIf="tipoPagamento === 2">
-              <h6>CODIGO DE BARRAS</h6>
-              <br>
-              <input type="number" class="form-control" disabled
-                placeholder="45645645546 5 646445466 5455645546 5 6545565465">
-            </div>
-
-            <div *ngIf="tipoPagamento === 1">
-              <h6>DADOS DO CARTÃO</h6>
-              <br>
-              <input type="number" class="form-control" placeholder="numero do cartão" name="number"
-                [(ngModel)]="payment.number">
-
-              <input type="number" class="form-control" placeholder="cvv" name="cv" [(ngModel)]="payment.cv">
-
-              <input type="date" class="form-control" name="date" [(ngModel)]="payment.date">
-
-            </div>
             <input type="text" class="form-control" placeholder="Digite seu nome completo" name="name"
-              [(ngModel)]="payment.name">
+              [(ngModel)]="payment.name" required>
 
             <input type="text" class="form-control" placeholder="CEP" name="cep" [(ngModel)]="address.cep" required>
 
             <input type="text" class="form-control" placeholder="Endereço" name="logradouro"
-              [(ngModel)]="address.logradouro">
+              [(ngModel)]="address.logradouro" required>
 
             <input type="text" class="form-control" placeholder="Complemento" name="complemento"
-              [(ngModel)]="address.complemento">
+              [(ngModel)]="address.complemento" required>
 
-            <input type="text" class="form-control" placeholder="Bairro" name="bairro" [(ngModel)]="address.bairro">
+            <input type="text" class="form-control" placeholder="Bairro" name="bairro" [(ngModel)]="address.bairro" required>
 
-            <input type="text" class="form-control" placeholder="UF" name="uf" [(ngModel)]="address.uf">
+            <input type="text" class="form-control" placeholder="UF" name="uf" [(ngModel)]="address.uf" required>
 
             <h3>Descrição da entrega</h3>
             <textarea name="descricao_address" [(ngModel)]="address.descricao_address" id="" cols="30"
-              rows="3"></textarea>
+              rows="3" required></textarea>
 
             <div class="botao">
-              <button type="button" routerLink="/modalComprar" class="btn btn-primary">
+              <button type="button" routerLink="/" class="btn btn-primary">
                 <i class="fas fa-backspace"></i>
                 Voltar
               </button>

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 import { Clients } from '../shared/model/clients.model';
 import { Products } from '../shared/model/products.model';
 import { ClientsService } from '../shared/service/clients.service';
@@ -69,6 +70,7 @@ export class IndexComponent implements OnInit {
     this.cart.products = prod;
     console.log("addcart",this.cart)
     this.serviceClient.addCart(this.cart);
+    Swal.fire('Adicionado!', 'Produto Adicionado no Carrinho!', 'success');
   }
 
 }

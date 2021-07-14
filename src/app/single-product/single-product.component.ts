@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AddressClient } from '../shared/model/addressClient.model';
 import { Bought } from '../shared/model/bought.model';
 import { Clients } from '../shared/model/clients.model';
@@ -39,6 +40,7 @@ export class SingleProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadStripe();
     this.getProducts();
     this.getPaymentForm();
     this.getUserLogin()
@@ -117,7 +119,8 @@ export class SingleProductComponent implements OnInit {
     this.bought.clients = this.client;
     this.bought.products = this.produtosData;
     this.serviceClient.addBought(this.bought);
-    this.router.navigate(['/comprados'])
+    this.router.navigate(['/comprados']);
+    Swal.fire('Ok!', 'Compra segue para analise!', 'success');
   }
 
   addCart(){
@@ -125,6 +128,39 @@ export class SingleProductComponent implements OnInit {
     this.cart.clients = this.client;
     this.cart.products = this.produtosData;
     this.serviceClient.addCart(this.cart);
+    Swal.fire('Adicionado!', 'Produto Adicionado no Carrinho!', 'success');
   }
+
+  loadStripe() {
+      
+    if(!window.document.getElementById('stripe-script')) {
+      var s = window.document.createElement("script");
+      s.id = "stripe-script";
+      s.type = "text/javascript";
+      s.src = "https://checkout.stripe.com/checkout.js";
+      window.document.body.appendChild(s);
+    }
+  }
+
+  pay(amount: number) {    
+  
+    var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51J7LpXF1zbo7ZPCRnL0cWVjMNrHIncZwf63VcHLWWGmjRHNGUHHzbwdgiomywPcju79Jc2vR9kFdBgVmyXRairSb00IyTNtp7e',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+        console.log(token)
+        alert('Token Created!!');
+      }
+    });
+  
+    handler.open({
+      name: this.produtosData.productName,
+      description: this.produtosData.description,
+      amount: amount * 100
+    });
+  
+}
 
 }

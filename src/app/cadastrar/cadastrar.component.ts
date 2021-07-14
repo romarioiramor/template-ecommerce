@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
+import Swal from 'sweetalert2';
 import { ClientsService } from '../shared/service/clients.service';
 
 @Component({
@@ -43,9 +44,11 @@ export class CadastrarComponent implements OnInit {
       .then(() => {
         this.message ='Você está cadastrado no sistema';
         this.router.navigate(['/login'])
+        Swal.fire('Cadastrado!', 'Cadastro realizado com sucesso!', 'success');
       }).catch(_error => {
         this.error = _error
         this.router.navigate(['/cadastrar'])
+        Swal.fire('Erro!', 'Não foi possivel realizar o cadastro!', 'error');
       })
     }
   }

@@ -22,3 +22,22 @@ ngb-carousel .wrapper {
     flex-wrap: nowrap;
     justify-content: space-around;
   }
+  .botaoHome {
+  margin-left: 32em;
+  margin-top: 3em;
+}
+
+.subIndex {
+  margin-top: 2em;
+}
+
+.owl-carousel.owl-loaded[_ngcontent-aip-c108] {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+
+
