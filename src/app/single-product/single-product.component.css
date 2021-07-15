@@ -1,5 +1,37 @@
 .owl-carousel.owl-loaded {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-  }
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.ajusteText {
+  padding-right: 5.8em;
+}
+.ajusteBtn {
+  margin-right: 0.9em;
+}
+.form-control {
+  margin-bottom: 1.2em;
+}
+.form-check {
+  margin-bottom: 0.5em;
+  padding-left: 1.7em;
+}
+.form-check-input {
+  margin-left: -1.5em;
+}
+.single-product-area {
+  padding: 30px 0 100px;
+}
+.divButao {
+  margin-top: 0.9em;
+}
+.ajusteImg {
+  margin-left: 5em;
+  margin-top: 3em;
+}
+.tabela {
+  margin-top: 2em;;
+}
+.tituloTabela {
+  margin-bottom: 1em;
+}

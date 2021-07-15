@@ -10,7 +10,7 @@
             <div class="col-sm-6">
               <div class="product-images">
                 <div class="product-main-img">
-                  <img src="../../assets/imgs/{{produtosData.photos}}" alt="">
+                  <img src="../../assets/imgs/{{produtosData.photos}}" class="ajusteImg" alt="">
                 </div>
               </div>
             </div>
@@ -19,18 +19,14 @@
               <div class="product-inner">
                 <h2 class="product-name" id="topPage">{{produtosData.productName}}</h2>
                 <div class="product-inner-price">
-                  <ins>{{produtosData.productPrice}}</ins> <del>$1000.00</del>
+                  <ins>R$ {{produtosData.productPrice}}</ins> <del>$1000.00</del>
                 </div>
                 <form action="" class="cart">
-                  <div class="quantity">
-                    <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity"
-                      min="1" step="1">
-                  </div>
-                  <button class="add_to_cart_button" type="submit">Carrinho</button>
+                  <button class="add_to_cart_button" type="submit" (click)="addCart()" class="add-to-cart-link">Carrinho <i class="fa fa-shopping-cart"></i></button>
                 </form>
 
                 <div class="product-inner-category">
-                  <p>Categoria: <a href="#">{{produtosData.productCategory}}</a>.</p>
+                  <h4>Categoria</h4><p><a>{{produtosData.productCategory}}</a></p>
                 </div>
 
                 <div role="tabpanel">
@@ -72,9 +68,10 @@
 
               </div>
             </div>
-            <div class="tabela col-sm-8">
+            <div class="tabela col-sm-12">
+              <h2 class="tituloTabela">Caracteristicas adicionais</h2>
               <table class="table">
-        
+
                 <tbody>
                   <th scope="row">Codigo</th>
                   <th scope="row">Avaliação</th>
@@ -85,9 +82,9 @@
                     <td>{{produtosData.productBrand}}</td>
                   </tr>
                 </tbody>
-        
+
               </table>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
@@ -98,8 +95,8 @@
 
             <div class="pagamento">
               <div class="form-check" name="cartao">
-                <input class="form-check-input" type="radio" (click)="pay(produtosData.productPrice)" name="raidoCard" value="CARTAO"
-                  (change)="changeTipo(1)" [(ngModel)]="payment.typePayment">
+                <input class="form-check-input ajusteCartao" type="radio" (click)="pay(produtosData.productPrice)" name="raidoCard"
+                  value="CARTAO" (change)="changeTipo(1)" [(ngModel)]="payment.typePayment">
                 <label class="form-check-label" for="flexRadioDefault1">
                   <i class="far fa-credit-card"></i>
                   Cartão de Credito
@@ -126,20 +123,21 @@
             <input type="text" class="form-control" placeholder="Complemento" name="complemento"
               [(ngModel)]="address.complemento" required>
 
-            <input type="text" class="form-control" placeholder="Bairro" name="bairro" [(ngModel)]="address.bairro" required>
+            <input type="text" class="form-control" placeholder="Bairro" name="bairro" [(ngModel)]="address.bairro"
+              required>
 
             <input type="text" class="form-control" placeholder="UF" name="uf" [(ngModel)]="address.uf" required>
 
             <h3>Descrição da entrega</h3>
-            <textarea name="descricao_address" [(ngModel)]="address.descricao_address" id="" cols="30"
+            <textarea name="descricao_address" class="ajusteText" [(ngModel)]="address.descricao_address" cols="30"
               rows="3" required></textarea>
 
-            <div class="botao">
-              <button type="button" routerLink="/" class="btn btn-primary">
+            <div class="divButao">
+              <button type="button" routerLink="/" class="btn btn-danger ajusteBtn btn-lg">
                 <i class="fas fa-backspace"></i>
                 Voltar
               </button>
-              <button type="submit" class="btn btn-success" [disabled]="frm.invalid">
+              <button type="submit" class="btn btn-success btn-lg" [disabled]="frm.invalid">
                 Comprar
                 <i class="fas fa-check"></i>
               </button>
