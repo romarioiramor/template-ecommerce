@@ -1,4 +1,19 @@
 .cartAjust {
-    margin-top: 0.3em;
-    margin-right: 0.3em;
+  margin-top: 0.3em;
+  margin-right: 0.3em;
+}
+
+.footer-top-area {
+  background: none repeat scroll 0 0 #333;
+  color: #999;
+  padding: 35px 0 70px;
+}
+
+.footer-bottom-area {
+  background: none repeat scroll 0 0 #000;
+  color: #fff;
+  padding-bottom: 10px;
+}
+.copyright>p {
+  margin: 15px 0 0;
 }

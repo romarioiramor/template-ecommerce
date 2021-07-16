@@ -38,6 +38,9 @@ ngb-carousel .wrapper {
   flex-direction: row;
   align-content: space-between;
 }
+.single-product-area {
+  background-color: #f4f4f4f4;
+}
 
 
 

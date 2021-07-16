@@ -1,8 +1,10 @@
-.compraTitulo{
-    text-align: center;
-    margin-bottom: 1em;;
+.compraTitulo {
+  text-align: center;
+  margin-bottom: 1em;
+  ;
 }
 
 .single-product-area {
-    padding: 20px 0 180px; 
+  padding: 20px 0 180px;
+  background-color: #f4f4f4f4;
 }

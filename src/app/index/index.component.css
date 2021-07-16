@@ -1,6 +1,6 @@
 .botaoHome {
   margin-left: 32em;
-  margin-top: 3em;
+  margin-top: 5em;
 }
 
 ngb-carousel .wrapper {
@@ -25,4 +25,10 @@ ngb-carousel .wrapper>img {
 
 .subIndex {
   margin-top: 2em;
+}
+.promo-area {
+  background-color: #f4f4f4;
+}
+.maincontent-area {
+  background-color: #f4f4f4;
 }
